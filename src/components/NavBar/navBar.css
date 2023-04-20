@@ -1,0 +1,10 @@
+.navHeader {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+   
+}
+
+.txt {
+    color: purple
+}
