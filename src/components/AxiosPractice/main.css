@@ -1,0 +1,4 @@
+.axios-card{
+    display: flex;
+    flex-direction: column;
+}
