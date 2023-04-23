@@ -1,4 +1,4 @@
-import { ADD_TODO_ITEM, REMOVE_FROM_TODO } from "./constants";
+import { ADD_TODO_ITEM, MARK_AS_DONE, REMOVE_FROM_TODO } from "./constants";
 
 export function addToDoItem(item){
     return {
@@ -10,6 +10,14 @@ export function addToDoItem(item){
 export function removeFromToDo(item){
     return {
         type:REMOVE_FROM_TODO,
+        data:item
+    }
+}
+
+export function markAsDone(item){
+    console.log("Action", item)
+    return {
+        type:MARK_AS_DONE,
         data:item
     }
 }

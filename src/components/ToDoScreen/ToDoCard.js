@@ -1,43 +1,36 @@
 import './toDoCard.css'
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import { faDeleteLeft,faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToDoItem, removeFromToDo } from '../redux/action'
-
-// import {faPlusLarge } from '@fortawesome/free-solid-svg-icons/faPlusLarge'
-
-
+import { addToDoItem, markAsDone, removeFromToDo } from '../redux/action'
 
 const ToDoCard = () => {
 
   const [value, setValue] = useState('')
-  // const [items, setItems] = useState([])
 
   const dispatch = useDispatch()
   const todoItems = useSelector((state) => state.reducer)
 
-  // console.log("redux items are", todoItems);
-  // console.log("state items are",items);
-
-  // useEffect(()=>{
-  //   // setItems(todoItems)
-  // },todoItems)
+  console.log('redux data is',todoItems);
 
   const handleChange = (e) => {
-    // console.log("value is", e.target.value);
     setValue(e.target.value)
   }
 
   const addItems = (item) => {
-    // setItems([...items, value])
-    dispatch(addToDoItem(item))
-    setValue('')
-    // console.log("items are", items)
+    if(item.length>0){
+      dispatch(addToDoItem({item,tick:false}))
+      setValue('')
+    }
   }
 
   const removeItems=(item)=>{
     dispatch(removeFromToDo(item))
+  }
+
+  const doneItems=(item, index)=>{
+    dispatch(markAsDone({item,tick:true, index}))
   }
 
   return (
@@ -48,25 +41,35 @@ const ToDoCard = () => {
         </div>
         <div className='add-item-div'>
           <form className='todo-form-box'>
-            <input type='text' placeholder='Add a Item' className='todo-input-box'
+            <input type='text' placeholder='Add an Item' className='todo-input-box'
               value={value} onChange={handleChange}
             />
           </form>
           <button className='add-icon' onClick={()=>addItems(value)}>+
           </button>
         </div>
-        {
+        <div className='item-div'>
+          <div className='item-child-div'>
+          {
           todoItems?.map((element, idx) => {
             return (
               <div className='item-box' key={String(idx)}>
-                <p className='item-name'>{element}</p>
-                <button className='delete-btn' onClick={()=>removeItems(element)}>
+               {element.tick&& <div className='h-line'></div>}
+                <p className='item-name'>{element.item}</p>
+                <div className='icon-div'>
+                <button className='check-btn' onClick={()=>doneItems(element.item, idx)}>
+                  <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green', fontSize: 30 }} />
+                </button>
+                <button className='delete-btn' onClick={()=>removeItems(element.item)}>
                   <FontAwesomeIcon icon={faDeleteLeft} style={{ color: 'red', fontSize: 30 }} />
                 </button>
+                </div>
               </div>
             )
           })
         }
+          </div>
+        </div>
       </div>
     </div>
   )

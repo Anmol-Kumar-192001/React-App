@@ -1,7 +1,7 @@
 import LoginForm from "./screens/LoginForm";
-import NavBar from "./components/NavBar/NavBar";
-import ResetLogin from "./components/ResetLogin/ResetLogin";
-import ToDoCard from "./components/ToDoScreen/ToDoCard";
+import NavBar from "./screens/NavBar";
+import ResetLogin from "./screens/ResetLogin";
+import ToDoCard from "./screens/ToDoScreen";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
