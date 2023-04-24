@@ -4,6 +4,7 @@ import ResetLogin from "./screens/ResetLogin";
 import ToDoCard from "./screens/ToDoScreen";
 import AxiosPractice from "./screens/AxiosPractice";
 import LazyLoading from "./screens/LazyLoading";
+import Styled from "./screens/Styled";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/todo' Component={ToDoCard} />
         <Route path='/axios' Component={AxiosPractice} />
         <Route path='/lazyloading' Component={LazyLoading} />
+        <Route path='/styled' Component={Styled} />
       </Routes>
     </>
   );
