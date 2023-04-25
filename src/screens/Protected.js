@@ -6,12 +6,18 @@ const Protected = (props) => {
 const {Component}=props
 const navigate=useNavigate()
 
+console.log("component is",props);
+
 useEffect(()=>{
     let login=localStorage.getItem('login')
     if(!login){
         navigate('/')
     }
-})
+    // else{
+    //   navigate('/home')
+    // }
+
+},[])
 
   return (
     <div><Component /></div>

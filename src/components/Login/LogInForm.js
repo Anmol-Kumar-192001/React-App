@@ -22,8 +22,9 @@ const LoginForm = () => {
             })
         }).then(res => res.json())
             .then(response => {
-                console.log("response is", response.success);
-                navigate('/Home')
+                console.log("response is", response);
+                localStorage.setItem('login',true)
+                navigate('home')
             })
             .catch(error => {
                 console.log(error)
@@ -39,7 +40,7 @@ const LoginForm = () => {
             </div>
         )
     }
-    console.log('asasd', errors);
+    // console.log('asasd', errors);
 
     const handleEmailChange = (e) => {
         setEmailId(e.target.value)
