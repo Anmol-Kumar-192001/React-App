@@ -2,20 +2,24 @@ import { useState, useEffect } from "react"
 import axios from "../../axios"
 import './main.css'
 
+const API_KEY=process.env.REACT_APP_API_KEY
+
 // const API="https://jsonplhttps://jsonplaceholder.typicode.com/postsaceholder.typicode.com"
 
 const Main = () => {
 
+    console.log("env file is",process.env.REACT_APP_API_KEY);
+
     const [myData, setMyData] = useState([])
     const [isError, setIsError] = useState('')
 
-    // useEffect(()=>{
-    //     axios.get('https://jsonplhttps://jsonplaceholder.typicode.com/postsaceholder.typicode.com/posts')
-    //     .then((res)=>setMyData(res.data))
-    //     .catch((e)=>{
-    //         setIsError(e.message)
-    //     })  
-    // },[])
+    useEffect(()=>{
+        axios.get(API_KEY)
+        .then((res)=>setMyData(res.data))
+        .catch((e)=>{
+            setIsError(e.message)
+        })  
+    },[])
 
     // using async await
 
@@ -34,20 +38,20 @@ const Main = () => {
     //     getApiData(`${API}/posts`);
     // }, [])
 
-    const getApiData = async () => {
+    // const getApiData = async () => {
        
-        try {
-            const res = await axios.get("posts");
-            setMyData(res.data)
-        } catch (e) {
+    //     try {
+    //         const res = await axios.get("posts");
+    //         setMyData(res.data)
+    //     } catch (e) {
                                     
-            setIsError(e.message)
-        }
-    }
+    //         setIsError(e.message)
+    //     }
+    // }
 
-    useEffect(() => {
-        getApiData();
-    }, [])
+    // useEffect(() => {
+    //     getApiData();
+    // }, [])
 
     return (
         <div className='navHeader'>
