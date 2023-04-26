@@ -73,8 +73,9 @@
     /* //text-align: left; */
     /* background-color: blue; */
     width: 220px;
-    padding-left: 10px;
+    padding-left: 2px;
     padding-right: 10px;
+    margin-top: -15px;
     
     /* width: 100%; */
 }

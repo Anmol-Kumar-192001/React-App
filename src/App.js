@@ -10,6 +10,8 @@ import Home from "./screens/Home";
 import MainHeader from "./screens/MainHeader";
 import Error from "./screens/Error";
 import Protected from "./screens/Protected";
+import About from "./screens/About";
+import Contact from "./screens/Contact";
 
 const App = () => {
 
@@ -20,6 +22,7 @@ const App = () => {
         <Route path='/' Component={MainHeader} >
           <Route index element={<LoginForm/>} />
           <Route path='home' element={<Protected Component={Home} />}  />
+          <Route path='about' element={<Protected Component={About} />}  />
         </Route>
      
         <Route path='/resetLogin' Component={ResetLogin} />
@@ -27,6 +30,7 @@ const App = () => {
         <Route path='/axios' Component={AxiosPractice} />
         <Route path='/lazyloading' Component={LazyLoading} />
         <Route path='/styled' Component={Styled} />
+        <Route path='/contact' Component={Contact} />
         <Route path="*" Component={Error} />
       </Routes>
     </>
