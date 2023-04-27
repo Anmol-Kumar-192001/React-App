@@ -14,7 +14,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+
 
 const drawerWidth = 240;
 const navItems = [{name:'Home',cmp:'/home'}, {name:'About',cmp:'about'}, {name:'Contact',cmp:'/contact'}];
@@ -22,6 +23,7 @@ const navItems = [{name:'Home',cmp:'/home'}, {name:'About',cmp:'about'}, {name:'
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate=useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -37,7 +39,7 @@ function DrawerAppBar(props) {
         {navItems.map((item,i) => (
           <ListItem key={i} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item?.name} />
+              <ListItemText primary={item?.name} onClick={()=>navigate(item?.cmp)}/>
             </ListItemButton>
           </ListItem>
         ))}

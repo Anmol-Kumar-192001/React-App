@@ -4,8 +4,7 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link,useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -14,6 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from "react-hook-form";
+import InputAdornment from '@mui/material/InputAdornment';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
 import './logInForm.css'
 
 function Copyright(props) {
@@ -36,8 +38,7 @@ export default function SignIn() {
   const navigate = useNavigate()
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const [emailId, setEmailId] = useState('')
-  const [password, setPassword] = useState('')
+  const [passwordType,setPasswordType]=useState('password')
 
   const onSubmit = (event, buttonEvent) => {
     buttonEvent.preventDefault();
@@ -84,6 +85,15 @@ export default function SignIn() {
     )
 }
 
+const handlePasswordType=()=>{
+  if(passwordType==='password'){
+    setPasswordType('text')
+  }
+  else{
+    setPasswordType('password')
+  }
+}
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -98,6 +108,7 @@ export default function SignIn() {
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
+           
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -126,14 +137,25 @@ export default function SignIn() {
               minLength: {value:8,message:'Password must be of atleast 8 characters'},
               pattern: {value:/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,message:'Password must be comprised of atleast one character,number and letter'}
             })}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end" >
+                  {passwordType==='text'?
+                    <VisibilityIcon onClick={handlePasswordType} sx={{cursor:'default'}}/>:
+                    <VisibilityOffIcon onClick={handlePasswordType} sx={{cursor:'default'}}/>
+                    }
+                </InputAdornment>
+              ),
+            }}
               margin="normal"
               required
               fullWidth
               name="password"
               label="Password"
-              type="password"
+              type={passwordType}
               id="password"
               autoComplete="current-password"
+             
             />
             <Error message={errors?.password?.message} />
            
