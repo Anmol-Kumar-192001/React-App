@@ -67,7 +67,7 @@ function ResponsiveDrawer(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex',marginTop:10 }}>
+    <Box sx={{ display: 'flex',marginTop:15 }}>
       <CssBaseline/>
       <AppBar
         position="fixed"
@@ -95,16 +95,25 @@ function ResponsiveDrawer(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,marginTop:7 },
           }}
         >
           {drawer}
         </Drawer>
+        <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'block' } }}
+          >
+            <MenuIcon sx={{marginLeft:2,marginTop:-6}}/>
+          </IconButton>
         <Drawer
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,marginTop:10 },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,marginTop:8 },
           }}
           open
         >
