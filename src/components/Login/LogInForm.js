@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from "react-hook-form";
 import InputAdornment from '@mui/material/InputAdornment';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { alpha, styled } from "@mui/material/styles";
 
 import './logInForm.css'
 
@@ -37,8 +38,9 @@ export default function SignIn() {
 
   const navigate = useNavigate()
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({mode:'onChange'});
   const [passwordType,setPasswordType]=useState('password')
+  const [onEmail,setOnEmail]=useState(false)
 
   const onSubmit = (event, buttonEvent) => {
     buttonEvent.preventDefault();
@@ -94,6 +96,18 @@ const handlePasswordType=()=>{
   }
 }
 
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "purple",
+    borderColor:'purple'
+  },
+  "& .MuiOutlinedInput-root": {
+    "&.Mui-focused fieldset": {
+      borderColor: "purple"
+    }
+  }
+});
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -121,6 +135,8 @@ const handlePasswordType=()=>{
                 pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'Enter valid email id' }
               })
               }
+              color="secondary"
+              
               margin="normal"
               required
               fullWidth
@@ -129,14 +145,20 @@ const handlePasswordType=()=>{
               name="email"
               autoComplete="email"
               autoFocus
+              // color='purple'
+              // onFocus={()=>{sx:{{backgroundColor:'red'}}}}
             />
-            <Error message={errors?.email?.message} />
+           <Error message={errors?.email?.message} />
+            
             <TextField
             {...register("password", {
               required: 'Password is required',
               minLength: {value:8,message:'Password must be of atleast 8 characters'},
+              // maxLength:{value:16,message:'Password must be of at max 16 characters'},
               pattern: {value:/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,message:'Password must be comprised of atleast one character,number and letter'}
             })}
+            color="secondary"
+            // inputProps={{ maxLength: 16 }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end" >
