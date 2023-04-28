@@ -8,7 +8,7 @@ const StarredContent = () => {
 
         <Box
             component="main"
-            sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` },marginTop:-12 }}
+            sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` },marginTop:-12.8 }}
         >
             <Toolbar />
             <Typography paragraph>

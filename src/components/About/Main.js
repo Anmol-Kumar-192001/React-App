@@ -34,8 +34,8 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div style={{marginTop:10}}>
-      <Toolbar style={{marginTop:10}}/>
-      <Divider />
+      {/* <Toolbar style={{marginTop:10}}/> */}
+      {/* <Divider /> */}
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding onClick={(e)=>setName(text)}>

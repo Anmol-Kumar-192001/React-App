@@ -12,6 +12,7 @@ import Error from "./screens/Error";
 import Protected from "./screens/Protected";
 import About from "./screens/About";
 import Contact from "./screens/Contact";
+import Practice from "./components/Practice";
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/lazyloading' Component={LazyLoading} />
         <Route path='/styled' Component={Styled} />
         <Route path='/contact' Component={Contact} />
+        <Route path='/practice' Component={Practice} />
         <Route path="*" Component={Error} />
       </Routes>
     </>
