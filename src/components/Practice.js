@@ -3,37 +3,14 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/material/styles';
-import { Button, Card, CardActions, CardContent, Divider, Paper } from '@mui/material';
-import Modal from '@mui/material/Modal';
+import { Divider } from '@mui/material';
 import UserDetails from './UserDetails';
 import CapriWall from './CapriWall'
 import Birthday from './Birthday'
 import NewJoinee from './NewJoinee'
 import CapriService from './CapriService'
 
-const style = {
-    position: 'absolute',
-    top: '20%',
-    left: '20%',
-    transform: 'translate(-50%, -50%)',
-    width: 200,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-
-const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-        •
-    </Box>
-);
 
 export default function DenseAppBar() {
 
@@ -50,13 +27,12 @@ export default function DenseAppBar() {
       }`
 
     const CustomizedTypography = styled(Typography)`
-:hover {
-    color: purple;
-    cursor:pointer;
-
+    :hover {
+        color: purple;
+        cursor:pointer;
   }
 `
-const details=['Home','CGCL Group','Knowlwdge Base','Directory','My Page','Online Requisitions','Data Warehouse']
+    const details = ['Home', 'CGCL Group', 'Knowlwdge Base', 'Directory', 'My Page', 'Online Requisitions', 'Data Warehouse']
 
     return (
         <>
@@ -82,10 +58,10 @@ const details=['Home','CGCL Group','Knowlwdge Base','Directory','My Page','Onlin
                     </Toolbar>
                     <Toolbar variant="dense" sx={{ backgroundColor: "#fff", borderColor: 'red', borderWidth: 5 }}>
                         {
-                            details.map((detail)=>
-                            <CustomizedTypography2 variant="h6" color="purple" component="div" sx={{ mr: 2, fontWeight: '400', fontSize: 15, cursor: 'pointer' }}>
-                            {detail}
-                        </CustomizedTypography2>
+                            details.map((detail) =>
+                                <CustomizedTypography2 variant="h6" color="purple" component="div" sx={{ mr: 2, fontWeight: '400', fontSize: 15, cursor: 'pointer' }}>
+                                    {detail}
+                                </CustomizedTypography2>
                             )
                         }
                     </Toolbar>
@@ -94,7 +70,7 @@ const details=['Home','CGCL Group','Knowlwdge Base','Directory','My Page','Onlin
             {
                 open && <UserDetails />
             }
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', mt: 4 }}>
                 <CapriWall />
                 <Birthday />
                 <NewJoinee />

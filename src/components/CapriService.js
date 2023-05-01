@@ -7,59 +7,77 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Shield, ShieldMoonSharp } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
 
 function createData(name, designation) {
-    return { name, designation};
-  }
+    return { name, designation };
+}
+
+const Item = styled(Paper)(({ theme,idx }) => ({
+    backgroundColor: (idx%2==0)?'lightgray' : '#fff',
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    fontSize:12,
+    
+}));
 
 const rows = [
     createData('Name', 'Anmol'),
     createData('Designation', 'Software Engineer'),
     createData('Department', 'Technology'),
     createData('Location', 'Gurgaon'),
-    
-  ];
+
+];
 
 const UserDetails = () => {
 
-  return (
-    <Card sx={{ width: 375,ml:2,mt:2, }}>
-    <CardContent>
-      <Typography variant="h7" component="div" sx={{color:'purple',fontWeight:'bold'}}>
-        Long Service at Capri
-      </Typography>
-    </CardContent>
-    <Card sx={{ width: 325,ml:2,mb:2,borderWidth:0.5,borderStyle:'solid',borderColor:'orange' }}>
-    <CardContent>
-     
-      <Typography variant="h6" component="div" sx={{display:'flex',flexDirection:'row',color:'orange',justifyContent:'center'}}>
-        5 Year & Above of Service
-      </Typography>
+    return (
+        <Card sx={{ width: 375, ml: 2, mt: 2, }}>
+            <CardContent>
+                <Typography variant="h7" component="div" sx={{ color: 'purple', fontWeight: 'bold' }}>
+                    Long Service at Capri
+                </Typography>
+            </CardContent>
+            <Card sx={{ width: 325, ml: 2, mb: 2, borderWidth: 0.5, borderStyle: 'solid', borderColor: 'orange' }}>
+                <CardContent>
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ position: 'absolute', top: 212, left: 1215 }} />
+                    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
 
-      <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 260 }} size="small" aria-label="a dense table">
-      
-        <TableBody>
-          {rows.map((row,i) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0} }}
-            >
-              <TableCell component="th" scope="row" sx={{bgcolor:(i%2===0)?'lightgray':'#fff',}}>
-                {row.name}
-              </TableCell>
-              <TableCell component="th" scope="row" sx={{bgcolor:(i%2===0)?'lightgray':'#fff'}}>{row.designation}</TableCell>
-             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-     
-    </CardContent>
-   
-  </Card>
-  </Card>
-  )
+                        <Shield sx={{ color: 'orange', mr: 1 }} />
+                        <Typography variant="h6" component="div" sx={{ display: 'flex', flexDirection: 'row', color: 'orange', justifyContent: 'center' }}>
+                            5 Year & Above of Service
+                        </Typography>
+                    </Box>
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={2}>
+                            {
+                                rows.map((row,i) =>
+                                    <>
+                                        <Grid item xs={4}>
+                                            <Item idx={i}>{row.name}</Item>
+                                        </Grid>
+                                        <Grid item xs={2}>
+                                            <Item idx={i}>:-</Item>
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <Item idx={i}>{row.designation}</Item>
+                                        </Grid>
+                                    </>
+                                )
+                            }
+                        </Grid>
+                    </Box>
+
+                </CardContent>
+
+            </Card>
+        </Card>
+    )
 }
 
 export default UserDetails
