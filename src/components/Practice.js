@@ -10,7 +10,7 @@ import CapriWall from './CapriWall'
 import Birthday from './Birthday'
 import NewJoinee from './NewJoinee'
 import CapriService from './CapriService'
-
+import Banner from './Banner';
 
 export default function DenseAppBar() {
 
@@ -70,6 +70,7 @@ export default function DenseAppBar() {
             {
                 open && <UserDetails />
             }
+            <Banner />
             <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', mt: 4 }}>
                 <CapriWall />
                 <Birthday />

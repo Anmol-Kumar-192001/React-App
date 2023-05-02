@@ -44,7 +44,7 @@ const UserDetails = () => {
             </CardContent>
             <Card sx={{ width: 325, ml: 2, mb: 2, borderWidth: 0.5, borderStyle: 'solid', borderColor: 'orange' }}>
                 <CardContent>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ position: 'absolute', top: 212, left: 275 }} />
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ position: 'absolute', top: 512, left: 275 }} />
 
                     <Typography variant="h6" component="div" sx={{ display: 'flex', flexDirection: 'row', color: 'orange', justifyContent: 'center' }}>
                         Quaterly Award
