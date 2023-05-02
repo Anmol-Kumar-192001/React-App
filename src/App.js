@@ -13,6 +13,8 @@ import Protected from "./screens/Protected";
 import About from "./screens/About";
 import Contact from "./screens/Contact";
 import Practice from "./components/Practice";
+import CustomHook from "./components/CustomHook";
+import Test from "./components/Test";
 
 const App = () => {
 
@@ -33,6 +35,8 @@ const App = () => {
         <Route path='/styled' Component={Styled} />
         <Route path='/contact' Component={Contact} />
         <Route path='/practice' Component={Practice} />
+        <Route path='/customHook' Component={CustomHook} />
+        <Route path='/test' Component={Test} />
         <Route path="*" Component={Error} />
       </Routes>
     </>
