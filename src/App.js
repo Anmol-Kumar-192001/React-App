@@ -15,6 +15,7 @@ import Contact from "./screens/Contact";
 import Practice from "./components/Practice";
 import CustomHook from "./components/CustomHook";
 import Test from "./components/Test";
+import Promise1 from "./components/Promise1";
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/practice' Component={Practice} />
         <Route path='/customHook' Component={CustomHook} />
         <Route path='/test' Component={Test} />
+        <Route path='/promise' Component={Promise1} />
         <Route path="*" Component={Error} />
       </Routes>
     </>
