@@ -1,11 +1,5 @@
-import { Button, Card, CardActions, CardContent, Typography } from '@mui/material'
+import { Card, CardContent, Typography } from '@mui/material'
 import React from 'react'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
@@ -13,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 
 const Item = styled(Paper)(({ theme,idx }) => ({
-    backgroundColor: (idx%2==0)?'lightgray' : '#fff',
+    backgroundColor: (idx%2===0)?'lightgray' : '#fff',
     padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.secondary,

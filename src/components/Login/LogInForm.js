@@ -3,7 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link,useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
@@ -15,7 +14,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from "react-hook-form";
 import InputAdornment from '@mui/material/InputAdornment';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { alpha, styled } from "@mui/material/styles";
 
 import './logInForm.css'
 
@@ -38,13 +36,11 @@ export default function SignIn() {
 
   const navigate = useNavigate()
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm({mode:'onChange'});
+  const { register, handleSubmit, formState: { errors } } = useForm({mode:'onChange'});
   const [passwordType,setPasswordType]=useState('password')
-  const [onEmail,setOnEmail]=useState(false)
 
   const onSubmit = (event, buttonEvent) => {
     buttonEvent.preventDefault();
-    const data = new FormData(event.currentTarget);
     console.log("data is",event);
     console.log({
       email: event.email,
@@ -96,17 +92,6 @@ const handlePasswordType=()=>{
   }
 }
 
-const CssTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    color: "purple",
-    borderColor:'purple'
-  },
-  "& .MuiOutlinedInput-root": {
-    "&.Mui-focused fieldset": {
-      borderColor: "purple"
-    }
-  }
-});
 
   return (
     <ThemeProvider theme={theme}>

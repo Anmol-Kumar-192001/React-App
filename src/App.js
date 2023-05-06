@@ -1,5 +1,4 @@
 import LoginForm from "./screens/LoginForm";
-import NavBar from "./screens/NavBar";
 import ResetLogin from "./screens/ResetLogin";
 import ToDoCard from "./screens/ToDoScreen";
 import AxiosPractice from "./screens/AxiosPractice";
@@ -16,6 +15,7 @@ import Practice from "./components/Practice";
 import CustomHook from "./components/CustomHook";
 import Test from "./components/Test";
 import Promise1 from "./components/Promise1";
+import PromiseAll from "./components/PromiseAll";
 
 const App = () => {
 
@@ -39,6 +39,7 @@ const App = () => {
         <Route path='/customHook' Component={CustomHook} />
         <Route path='/test' Component={Test} />
         <Route path='/promise' Component={Promise1} />
+        <Route path='/promiseAll' Component={PromiseAll} />
         <Route path="*" Component={Error} />
       </Routes>
     </>
