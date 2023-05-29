@@ -17,6 +17,7 @@ import Test from "./components/Test";
 import Promise1 from "./components/Promise1";
 import PromiseAll from "./components/PromiseAll";
 import Comment from "./components/Comment";
+import CommonComment from "./components/CommonComment";
 
 const App = () => {
 
@@ -42,6 +43,7 @@ const App = () => {
         <Route path='/promise' Component={Promise1} />
         <Route path='/promiseAll' Component={PromiseAll} />
         <Route path='/comment' Component={Comment} />
+        <Route path='/commoncomment' Component={CommonComment} />
         <Route path="*" Component={Error} />
       </Routes>
     </>
