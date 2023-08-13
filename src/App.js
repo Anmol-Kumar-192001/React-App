@@ -18,6 +18,7 @@ import Promise1 from "./components/Promise1";
 import PromiseAll from "./components/PromiseAll";
 import Comment from "./components/Comment";
 import CommonComment from "./components/CommonComment";
+import Shimmer from "./components/Shimmer";
 
 const App = () => {
 
@@ -44,6 +45,7 @@ const App = () => {
         <Route path='/promiseAll' Component={PromiseAll} />
         <Route path='/comment' Component={Comment} />
         <Route path='/commoncomment' Component={CommonComment} />
+        <Route path='/shimmer' Component={Shimmer} />
         <Route path="*" Component={Error} />
       </Routes>
     </>

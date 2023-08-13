@@ -47,8 +47,6 @@ export default function CommonComment() {
     }
   }
 
-  console.log('flatten comments are', levelComments);
-
   const showReplyFunction = (level) => {
     setShowReply(level)
   }
